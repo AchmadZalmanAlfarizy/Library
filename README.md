@@ -1,10 +1,3 @@
-# Library
->>>>>>> ff8732d3faad593463333a84a9edec7edabf4028
 Tugas Rekayasa Interaksi
-=======
-# Library
-Tugas Rekayasa Interaksi
-=======
-# Library
->>>>>>> ff8732d3faad593463333a84a9edec7edabf4028
-Tugas Rekayasa Interaksi
+Achmad Zalman Alfarizy (202210370311390)
+Muhammad Caeza Adriawan Effendi (202210370311386)
