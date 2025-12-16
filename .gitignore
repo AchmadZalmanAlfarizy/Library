@@ -1,0 +1,31 @@
+# Laravel
+/backend/vendor/
+/backend/node_modules/
+/backend/public/storage
+/backend/storage/app/
+/backend/storage/framework/
+/backend/storage/logs/
+/backend/bootstrap/cache/
+/backend/.env
+/backend/.env.local
+/backend/.env.production
+/backend/.env.staging
+/backend/.phpunit.result.cache
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+# Vue.js
+/frontend/node_modules/
+/frontend/dist/
+/frontend/.env.local
+/frontend/.env.production.local
+
+# General
+.DS_Store
+Thumbs.db
+*.log
+*.tmp
+.vscode/
+.idea/
