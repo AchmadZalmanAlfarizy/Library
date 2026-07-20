@@ -1,3 +1,4 @@
+(Mohon maaf pak, karena detaill insight nya di hapus oleh caesa jadi hilang bisa di liat di bagian commits pada setiap branch saya ada bukti beserta tanggal nya).
 A. Nama Aplikasi : Manajemen Perpustakaan
 B. Deskripsi Aplikasi
 
