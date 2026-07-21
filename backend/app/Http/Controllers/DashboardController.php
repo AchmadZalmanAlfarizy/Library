@@ -11,34 +11,39 @@ use Illuminate\Support\Facades\DB;
 class DashboardController extends Controller
 {
     /**
-     * Display dashboard data.
+     * Get and display the dashboard statistics data.
      */
     public function index(Request $request)
     {
-        // Buku terpopuler
-        $popularBooks = Book::withCount('loans')
-            ->orderBy('loans_count', 'desc')
-            ->take(5)
+        // Mengambil 5 buku dengan peminjaman terbanyak
+        $topBooks = Book::withCount('loans')
+            ->orderByDesc('loans_count')
+            ->limit(5)
             ->get();
 
-        // Jumlah peminjaman per bulan (tahun ini)
-        $loansPerMonth = Loan::select(DB::raw('MONTH(borrow_date) as month'), DB::raw('count(*) as total'))
-            ->whereYear('borrow_date', date('Y'))
+        // Statistik jumlah peminjaman bulanan di tahun berjalan
+        $monthlyLoans = Loan::select(
+                DB::raw('MONTH(borrow_date) as month'), 
+                DB::raw('COUNT(id) as total')
+            )
+            ->whereYear('borrow_date', now()->year)
             ->groupBy('month')
-            ->orderBy('month')
+            ->orderBy('month', 'asc')
             ->get();
 
-        // Daftar anggota aktif (meminjam buku dalam 30 hari terakhir)
-        $activeMembers = Member::whereHas('loans', function ($query) {
-            $query->where('borrow_date', '>=', now()->subDays(30));
-        })->withCount(['loans' => function($query){
-            $query->where('borrow_date', '>=', now()->subDays(30));
+        // Menampilkan anggota aktif berdasarkan peminjaman 30 hari terakhir
+        $dateThreshold = now()->subDays(30);
+
+        $activeUsers = Member::whereHas('loans', function ($query) use ($dateThreshold) {
+            $query->where('borrow_date', '>=', $dateThreshold);
+        })->withCount(['loans' => function ($query) use ($dateThreshold) {
+            $query->where('borrow_date', '>=', $dateThreshold);
         }])->get();
 
         return response()->json([
-            'popular_books' => $popularBooks,
-            'loans_per_month' => $loansPerMonth,
-            'active_members' => $activeMembers,
+            'popular_books'   => $topBooks,
+            'loans_per_month' => $monthlyLoans,
+            'active_members'  => $activeUsers,
         ]);
     }
 }

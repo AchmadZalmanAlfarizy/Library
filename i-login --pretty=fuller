@@ -1,0 +1,155 @@
+[33mcommit a01bc2b1bdbb28f134a45e66d07de1da85ccacb9[m[33m ([m[1;31morigin/revisi-login[m[33m, [m[1;32mrevisi-login[m[33m)[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Tue Dec 2 21:46:11 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Tue Dec 2 21:46:11 2025 +0700
+
+    Tambah ulang login
+
+[33mcommit b3a811bd50b942685933fc12cf40c6d83079c511[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Tue Dec 2 21:42:03 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Tue Dec 2 21:42:03 2025 +0700
+
+    Hapus login lama
+
+[33mcommit 16d92f7697f134460732b3e437f4fd39b80ff23d[m
+Merge: 2369c3e aaaae8c
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Thu Nov 27 20:19:31 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Thu Nov 27 20:19:31 2025 +0700
+
+    Fix merge conflict README
+
+[33mcommit 2369c3e6614d4ba4128c578917226825454a2f1a[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Thu Nov 27 20:14:40 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Thu Nov 27 20:14:40 2025 +0700
+
+    Update README: perbaikan deskripsi project
+
+[33mcommit aaaae8c811ff2b73bb9c5834f40f27fb82804f43[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Thu Nov 27 18:48:26 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Thu Nov 27 18:48:26 2025 +0700
+
+    Update README.md
+
+[33mcommit beb2f4e54e2810db8a062d79aaa31f79333b2c11[m[33m ([m[1;31morigin/revisi-routes[m[33m, [m[1;32mrevisi-routes[m[33m)[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Wed Nov 26 13:20:56 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Wed Nov 26 13:20:56 2025 +0700
+
+    Routes Revisi
+
+[33mcommit 6ba726fbe114c94e2ac2231eaeb30fd77a5f8124[m
+Merge: 6836605 577cbcb
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Wed Nov 26 13:17:39 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Wed Nov 26 13:17:39 2025 +0700
+
+    Merge branch 'main' of https://github.com/AchmadZalmanAlfarizy/Library
+
+[33mcommit 683660590796a1e84943836467555da86d9cce17[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Wed Nov 26 13:16:50 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Wed Nov 26 13:16:50 2025 +0700
+
+    hapus folder lama
+
+[33mcommit 577cbcbf6315915ab157449de796b1a600cf9ceb[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Wed Nov 26 11:27:37 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Wed Nov 26 11:27:37 2025 +0700
+
+    Update README.md
+
+[33mcommit 5f1ba3042c0f99e3f86cdceb8ea50f7831fef64c[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Tue Nov 25 16:38:04 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 25 16:38:04 2025 +0700
+
+    Update README.md
+
+[33mcommit 9677f572cd9e1993df13b177a6ff919248d3373c[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Tue Nov 25 16:03:45 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 25 16:03:45 2025 +0700
+
+    Update README.md
+
+[33mcommit 62f2ba00795f91375a160f5e55abb9e2faf06bd3[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Tue Nov 25 16:02:59 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 25 16:02:59 2025 +0700
+
+    Update README.md
+
+[33mcommit a7e50147bf3b8b85ca0475f3dee6088bde556cbc[m
+Author:     mhcaez <muhammadcaezaltmpt22@gmail.com>
+AuthorDate: Tue Nov 18 22:33:34 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 18 22:33:34 2025 +0700
+
+    README.md
+
+[33mcommit 0452f19e721b1b07909fa21ed907258cef57f6f9[m
+Merge: 0987a1f ff8732d
+Author:     mhcaez <muhammadcaezaltmpt22@gmail.com>
+AuthorDate: Tue Nov 18 22:16:50 2025 +0700
+Commit:     mhcaez <muhammadcaezaltmpt22@gmail.com>
+CommitDate: Tue Nov 18 22:32:19 2025 +0700
+
+    Initial commit - 202210370311386 Muhammad Caeza Adriawan Effendi
+
+[33mcommit ff8732d3faad593463333a84a9edec7edabf4028[m
+Author:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+AuthorDate: Tue Nov 18 22:05:15 2025 +0700
+Commit:     AchmadZalmanAlfarizy <azalmana27@gmail.com>
+CommitDate: Tue Nov 18 22:05:15 2025 +0700
+
+    Initial commit - 202210370311390 Achmad Zalman Alfarizy
+
+[33mcommit 0987a1f65c7974f7f74c60b71bd26e6c71fad1d1[m
+Merge: 341da06 289e178
+Author:     mhcaez <muhammadcaezaltmpt22@gmail.com>
+AuthorDate: Tue Nov 18 22:02:48 2025 +0700
+Commit:     mhcaez <muhammadcaezaltmpt22@gmail.com>
+CommitDate: Tue Nov 18 22:02:48 2025 +0700
+
+    Merge branch 'main' of https://github.com/AchmadZalmanAlfarizy/WebsiteLibrary
+
+[33mcommit 341da06fcc4abfd32bc00615e3d8d95c8be78ea4[m
+Author:     Yolosejaa <rezanugraha630@gmail.com>
+AuthorDate: Tue Nov 18 21:50:43 2025 +0700
+Commit:     Yolosejaa <rezanugraha630@gmail.com>
+CommitDate: Tue Nov 18 21:50:43 2025 +0700
+
+    ManajemenPerpustakaan
+
+[33mcommit 56feb39fb492b0f1ca90c625ef2100792ca7ca83[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Tue Nov 18 21:39:16 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 18 21:39:16 2025 +0700
+
+    Initial commit
+
+[33mcommit 289e178c1d2ebffc0837d532ab525fca5e696c68[m
+Author:     zalman <149035505+AchmadZalmanAlfarizy@users.noreply.github.com>
+AuthorDate: Tue Nov 18 20:50:00 2025 +0700
+Commit:     GitHub <noreply@github.com>
+CommitDate: Tue Nov 18 20:50:00 2025 +0700
+
+    Initial commit
