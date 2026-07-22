@@ -6,6 +6,7 @@ use App\Models\Member;
 use Illuminate\Http\Request;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\Rule;
 
 class MemberController extends Controller
 {
@@ -14,8 +15,7 @@ class MemberController extends Controller
      */
     public function index(): JsonResponse
     {
-        $members = Member::all();
-        return response()->json($members);
+        return response()->json(Member::all());
     }
 
     /**
@@ -24,18 +24,23 @@ class MemberController extends Controller
     public function store(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'member_id' => 'required|string|max:255|unique:members',
-            'email' => 'nullable|email|max:255|unique:members',
-            'phone_number' => 'nullable|string|max:20',
-            'address' => 'nullable|string',
+            'name'         => ['required', 'string', 'max:255'],
+            'member_id'    => ['required', 'string', 'max:255', 'unique:members,member_id'],
+            'email'        => ['nullable', 'email', 'max:255', 'unique:members,email'],
+            'phone_number' => ['nullable', 'string', 'max:20'],
+            'address'      => ['nullable', 'string'],
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json([
+                'status'  => 'error',
+                'message' => $validator->errors()
+            ], 400);
         }
 
-        $member = Member::create($request->all());
+        // Menggunakan validated() lebih aman daripada request->all()
+        $member = Member::create($validator->validated());
+        
         return response()->json($member, 201);
     }
 
@@ -47,7 +52,10 @@ class MemberController extends Controller
         $member = Member::find($id);
 
         if (!$member) {
-            return response()->json(['message' => 'Member not found'], 404);
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Member not found'
+            ], 404);
         }
 
         return response()->json($member);
@@ -61,22 +69,30 @@ class MemberController extends Controller
         $member = Member::find($id);
 
         if (!$member) {
-            return response()->json(['message' => 'Member not found'], 404);
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Member not found'
+            ], 404);
         }
 
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'member_id' => 'required|string|max:255|unique:members,member_id,' . $id,
-            'email' => 'nullable|email|max:255|unique:members,email,' . $id,
-            'phone_number' => 'nullable|string|max:20',
-            'address' => 'nullable|string',
+            'name'         => ['required', 'string', 'max:255'],
+            // Menggunakan class Rule agar format unique ignore id lebih rapi dan aman
+            'member_id'    => ['required', 'string', 'max:255', Rule::unique('members')->ignore($id)],
+            'email'        => ['nullable', 'email', 'max:255', Rule::unique('members')->ignore($id)],
+            'phone_number' => ['nullable', 'string', 'max:20'],
+            'address'      => ['nullable', 'string'],
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json([
+                'status'  => 'error',
+                'message' => $validator->errors()
+            ], 400);
         }
 
-        $member->update($request->all());
+        $member->update($validator->validated());
+        
         return response()->json($member);
     }
 
@@ -88,39 +104,51 @@ class MemberController extends Controller
         $member = Member::find($id);
 
         if (!$member) {
-            return response()->json(['message' => 'Member not found'], 404);
+            return response()->json([
+                'status'  => 'error',
+                'message' => 'Member not found'
+            ], 404);
         }
 
         $member->delete();
-        return response()->json(['message' => 'Member deleted']);
+        
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Member deleted'
+        ]);
     }
 
-    public function register(Request $request)
+    /**
+     * Register a new member.
+     */
+    public function register(Request $request): JsonResponse
     {
         $validator = Validator::make($request->all(), [
-            'name' => 'required|string|max:255',
-            'email' => 'required|email|unique:members,email',
-            'phone_number' => 'required|string|max:20',
-            'address' => 'required|string',
+            'name'         => ['required', 'string', 'max:255'],
+            'email'        => ['required', 'email', 'unique:members,email'],
+            'phone_number' => ['required', 'string', 'max:20'],
+            'address'      => ['required', 'string'],
         ]);
 
         if ($validator->fails()) {
-            return response()->json($validator->errors(), 400);
+            return response()->json([
+                'status'  => 'error',
+                'message' => $validator->errors()
+            ], 400);
         }
 
-        // Generate member ID (contoh: MEM-001, MEM-002, dst)
-        $lastMember = Member::orderBy('id', 'desc')->first();
+        // Menggunakan latest() sebagai pengganti orderBy('id', 'desc')
+        $lastMember = Member::latest('id')->first();
         $nextId = $lastMember ? (int) substr($lastMember->member_id, 4) + 1 : 1;
         $memberId = 'MEM-' . str_pad($nextId, 3, '0', STR_PAD_LEFT);
 
-        $member = Member::create([
-            'name' => $request->name,
-            'email' => $request->email,
-            'phone_number' => $request->phone_number,
-            'address' => $request->address,
-            'member_id' => $memberId,
-        ]);
+        // Menggabungkan data yang sudah divalidasi dengan memberId buatan sistem
+        $memberData = array_merge($validator->validated(), ['member_id' => $memberId]);
+        Member::create($memberData);
 
-        return response()->json(['message' => 'Member registered successfully'], 201);
+        return response()->json([
+            'status'  => 'success',
+            'message' => 'Member registered successfully'
+        ], 201);
     }
 }
